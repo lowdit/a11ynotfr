@@ -10,7 +10,7 @@
   --a11y-card: #ffffff;
   --a11y-border: #b8cbc8;
   --a11y-radius: 8px;
-  --color-primary: #1c2834;
+  --color-primary: #1c2834 !important;
 }
 
 .a11ynot-site {
