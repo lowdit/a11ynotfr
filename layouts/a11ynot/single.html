@@ -1,27 +1,44 @@
 {{ define "main" }}
 {{- partial "utils/nav-depth" . -}}
-{{ with resources.Get "css/a11ynot.css" }}
-<link rel="stylesheet" href="{{ .RelPermalink }}">
-{{ end }}
-<div class="container a11ynot-scope">
-  {{- with .Params.a11ynot_id }}
-  <aside class="a11ynot-banner" aria-label="Avertissement pédagogique">
-    <p><strong>Démo pédagogique.</strong> Cette page illustre volontairement une barrière d'accessibilité.</p>
-  </aside>
-  {{- end }}
-
+{{ partial "a11ynot/styles.html" . }}
+{{- with .Params.custom_css }}
+<link rel="stylesheet" href="/a11ynot/css/nots/{{ . }}">
+{{- end }}
+<div class="a11ynot-site container a11ynot-scope">
   <section class="page-header">
+
+    {{- if and (eq .Params.category "wcag") .Params.a11ynot_id }}
+    {{ partial "a11ynot/wcag-title.html" . }}
+    {{- else if and (eq .Params.category "outils") .Params.a11ynot_id }}
+    {{ partial "a11ynot/outils-title.html" . }}
+    {{- else }}
     <h1 class="page-header-title">{{ .Title }}</h1>
     {{- with .Description }}<p class="page-header-desc">{{ . | markdownify }}</p>{{ end }}
+    {{- end }}
+    {{- with .Params.a11ynot_id }}
+    {{- if eq $.Params.category "outils" }}
+    <p>Cet exemple provient de la <a href="https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules">documentation Accessibility Developer Tools</a>.</p>
+    {{- else }}
+    <p>Cet exemple provient des <a href="https://www.w3.org/TR/WCAG20-TECHS/failures.html">échecs WCAG 2.0 (W3C)</a>.</p>
+    {{- end }}
+    {{- with $.Params.custom_css }}
+    <p><a href="/a11ynot/css/nots/{{ . }}">Voir la feuille de style de ce Not</a>.</p>
+    {{- end }}
+    {{- with $.Params.original_url }}
+    <p><a href="{{ . }}" hreflang="en">Version anglaise sur a11ynot.com</a></p>
+    {{- end }}
+    {{- end }}
     {{ partial "a11ynot/nav.html" . }}
   </section>
-
   {{- with .Params.a11ynot_id }}
   {{ partial "a11ynot/not-doc.html" $ }}
   {{- end }}
-
-  <section class="a11ynot-demo markdown" aria-label="Zone de démonstration">
+  <section class="a11ynot-demo markdown generic-single" aria-label="Zone de démonstration">
     {{ .Content }}
   </section>
+  <p class="a11ynot-credits">
+    Inspiré de <a href="https://a11ynot.com/">a11ynot.com</a> — <a href="{{ site.Params.github }}">GitHub</a>
+  </p>
 </div>
+<script defer src="/a11ynot/js/gist.js"></script>
 {{ end }}

@@ -1,6 +1,6 @@
 # Consignes — a11ynotfr
 
-Site Hugo **autonome** : corpus a11yNot en français, évolution open source du fork hébergé sur `bertrandkeller.github.io/content/a11ynot/`.
+Site Hugo **autonome** et **canonique** pour a11yNot en français. Le blog `bertrandkeller.github.io` ne garde qu’une page d’annonce (`/a11ynot/`).
 
 Méthode commune : [`../lowtech-dev-method/`](../lowtech-dev-method/).
 
@@ -20,9 +20,9 @@ Méthode commune : [`../lowtech-dev-method/`](../lowtech-dev-method/).
 | `assets/`, `static/a11ynot/` | Styles d’intégration, démos, assets hérités |
 | `scripts/` | `build_a11ynot_*.py`, `convert_a11ynot_jekyll.py` (chemins adaptés à ce dépôt) |
 
-## Migration depuis le blog
+## Migration (terminée)
 
-Source actuelle : `../bertrandkeller.github.io/` (`content/a11ynot/`, `data/a11ynot/`, `layouts/a11ynot/`, `static/a11ynot/`, scripts). Ne pas dupliquer sans plan : soit **import ponctuel**, soit **module Hugo** consommé par le blog pour une URL miroir.
+Historique : voir [`docs/MIGRATION.md`](docs/MIGRATION.md). Ne pas réimporter le corpus dans le blog.
 
 ## Exécution IA
 

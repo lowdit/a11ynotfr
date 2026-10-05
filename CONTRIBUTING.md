@@ -9,6 +9,11 @@ Merci de participer à un corpus **pédagogique** (contre-exemples), pas à un a
 - Corrections **accessibilité du chrome** (navigation, cartes, titres) — pas « réparer » la démo volontaire.
 - Signaler un Not **obsolète** (API, pattern 2016) avec proposition de statut (héritage / toujours d’actualité).
 
+## Navigation et brouillons
+
+Les entrées de menu viennent du front matter (`menus.main` sur chaque page éditoriale), **pas** de `config/_default/hugo.toml`.  
+Ajouter `draft: true` sur une page la retire du menu en build normal (prod). Avec `hugo server -D`, les brouillons restent visibles dans le menu — comportement Hugo standard.
+
 ## Format d’un Not
 
 - Front matter : `a11ynot_id`, `category` (`wcag` | `outils`), `gistID` si code externe, `layout: a11ynot`.

@@ -1,5 +1,5 @@
-title = "a11yNot — échecs d'accessibilité (FR)"
-description = "Contre-exemples WCAG et règles outils, pour auditeurs et formation. Projet open source."
+title = "a11yNot en français"
+description = "Contre-exemples WCAG et règles outils pour auditeurs francophones — formation et calibration."
 defaultContentLanguage = "fr"
 locale = "fr-FR"
 ignoreLogs = ["warning-goldmark-raw-html"]
@@ -14,28 +14,14 @@ section = ["HTML", "SITEMAP"]
 page = ["HTML"]
 
 [params]
-moto = "Comprendre les échecs — pas certifier un site réel"
-github = "https://github.com/bertrandkeller/a11ynotfr"
-license = "Contenu et code : voir LICENSE et CONTRIBUTING.md"
+moto = "Communauté auditeurs — comprendre les échecs, pas certifier un site réel"
+github = "https://github.com/lowdit/a11ynotfr"
+license = "MIT (code) · CC BY 4.0 (contenus éditoriaux)"
 
-[menus]
-[[menus.main]]
-identifier = "wcag"
-name = "WCAG"
-url = "/wcag/"
-weight = 1
-[[menus.main]]
-identifier = "outils"
-name = "Outils développeur"
-url = "/outils/"
-weight = 2
-[[menus.main]]
-identifier = "guide"
-name = "Guide auditeur"
-url = "/guide-auditeur/"
-weight = 3
-[[menus.main]]
-identifier = "contribuer"
-name = "Contribuer"
-url = "/contribuer/"
-weight = 10
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+# Menus : définis dans le front matter de chaque page (menus.main).
+# draft: true → absent du menu (sauf hugo server -D / --buildDrafts).

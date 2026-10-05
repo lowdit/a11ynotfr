@@ -4,8 +4,10 @@ Reprise française et évolution du corpus [a11yNot](https://a11ynot.com/) (~201
 
 ## État actuel
 
-- **Squelette** de dépôt dans `sites/hugo/a11ynotfr/` (config, layouts cartes, navigation).
-- **Corpus complet** encore dans [`bertrandkeller.github.io`](../bertrandkeller.github.io/) (`content/a11ynot/`, etc.) — migration à planifier.
+- **Corpus WCAG 2.0 + outils** migré depuis le blog (~100+ fiches).
+- **Communauté auditeurs** : accès par critère WCAG, guide, contributions open source ([lowdit/a11ynotfr](https://github.com/lowdit/a11ynotfr)).
+- **Identité visuelle** : palette teal / bleu-vert (`assets/css/a11ynot.css`).
+- **Blog** : [`docs/MIGRATION.md`](docs/MIGRATION.md) — annonce sur `/a11ynot/`, menu → site FR.
 
 ## Objectifs produit
 
@@ -15,14 +17,16 @@ Reprise française et évolution du corpus [a11yNot](https://a11ynot.com/) (~201
 
 ## Développement local
 
+Thème **higo** via symlink (comme le blog) :
+
 ```bash
 cd a11ynotfr
-hugo mod get
+ln -sf ../../higo themes/higo   # une fois
 hugo server -D
 ```
 
-(`baseURL` et déploiement à configurer avant mise en production.)
+En **CI / production** : `config/production/hugo.toml` utilise `theme = ["github.com/lowdit/higo"]` + `hugo mod get` dans le workflow Pages.
 
 ## Relation avec bertrandkeller.github.io
 
-Tant que la migration n’est pas faite, le blog peut garder une section `/a11ynot/` qui **pointe** vers ce site ou réutilise un **module Hugo** — à trancher (SEO, une vs deux URLs).
+Voir [`docs/MIGRATION.md`](docs/MIGRATION.md) — corpus canonique ici, annonce sur le blog.

@@ -1,17 +1,10 @@
 ---
-title: "a11yNot — comprendre les échecs d'accessibilité"
-description: "Contre-exemples WCAG et règles outils, pour auditeurs et formation."
+title: "a11yNot en français"
+description: "Contre-exemples WCAG 2.0 et règles outils — pour auditeurs en formation."
 type: a11ynot
-layout: a11ynot
+layout: home
 ---
 
-Chaque **Not** montre **une** violation isolée dans une zone de démo — pour **comprendre ce qui échoue**, pas pour certifier un site réel.
+Un **Not** = une violation isolée dans une zone de démo, pour relier un **critère WCAG** ou une **règle outil** à un cas concret. Ce n’est pas une preuve sur un site client.
 
-| Parcours | Contenu |
-|----------|---------|
-| **[WCAG](/wcag/)** | Exemples d’échec regroupés par critère 2.0 |
-| **[Outils développeur](/outils/)** | Démos AX_* (Accessibility Developer Tools) |
-| **[Guide auditeur](/guide-auditeur/)** | Protocole de lecture et limites |
-| **[Contribuer](/contribuer/)** | Open source et contributions |
-
-Corpus d’origine : [a11yNot.com](https://a11ynot.com/) (~2016), évolution communautaire en français.
+Corpus inspiré de [a11yNot.com](https://a11ynot.com/) (~2016), maintenu en open source sur [GitHub](https://github.com/lowdit/a11ynotfr).

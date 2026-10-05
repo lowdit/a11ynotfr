@@ -1,9 +1,7 @@
 {{ define "main" }}
 {{- partial "utils/nav-depth" . -}}
-{{ with resources.Get "css/a11ynot.css" }}
-<link rel="stylesheet" href="{{ .RelPermalink }}">
-{{ end }}
-<div class="container a11ynot-scope">
+{{ partial "a11ynot/styles.html" . }}
+<div class="a11ynot-site container a11ynot-scope">
   <section class="page-header">
     <h1 class="page-header-title">{{ .Title }}</h1>
     {{- with .Description }}<p class="page-header-desc">{{ . | markdownify }}</p>{{ end }}
@@ -14,22 +12,45 @@
     {{ with .Content }}{{ . }}{{ end }}
 
     {{- if .IsSection }}
-      {{- $pages := .RegularPages.ByTitle }}
-      {{- if gt (len $pages) 0 }}
-      <ul class="a11ynot-cards" role="list">
-        {{- range $pages }}
-        <li class="a11ynot-cards-item">
-          {{ partial "a11ynot/card.html" . }}
-        </li>
-        {{- end }}
-      </ul>
-      {{- end }}
-
-      {{/* Listes enrichies par data (comme sur le blog) — à brancher après migration YAML */}}
       {{- if eq .RelPermalink "/wcag/" }}
-      <p class="a11ynot-list-intro">Après migration : regroupement par critère WCAG 2.0 via <code>data/a11ynot/wcag_meta.yaml</code>.</p>
+        {{- $wcagData := site.Data.a11ynot.wcag_meta -}}
+        {{- $meta := $wcagData.by_criterion | default slice -}}
+        <p class="a11ynot-list-intro">Exemples classés par <strong>critère WCAG 2.0</strong>. Chaque carte mène à une démo d’échec documentée par le W3C.</p>
+        {{- range $meta }}
+        <section class="a11ynot-criterion-block">
+          <h2 id="wcag-{{ .id | anchorize }}">Critère {{ .id }} — {{ .name_fr }}</h2>
+          <ul class="a11ynot-cards" role="list">
+            {{- range .examples }}
+            {{ partial "a11ynot/card-link.html" . }}
+            {{- end }}
+          </ul>
+        </section>
+        {{- end }}
       {{- else if eq .RelPermalink "/outils/" }}
-      <p class="a11ynot-list-intro">Après migration : regroupement par thème via <code>data/a11ynot/outils_meta.yaml</code>.</p>
+        {{- $outilsMeta := site.Data.a11ynot.outils_meta -}}
+        {{- $themes := $outilsMeta.by_theme | default slice -}}
+        <p class="a11ynot-list-intro">Contre-exemples calibrés sur les règles <strong>Accessibility Developer Tools</strong> (Chrome), repérables par <strong>axe</strong>, <strong>WAVE</strong>, etc.</p>
+        {{- range $themes }}
+        <section class="a11ynot-criterion-block">
+          <h2 id="outils-{{ .id | anchorize }}">{{ .name_fr }}</h2>
+          <ul class="a11ynot-cards" role="list">
+            {{- range .examples }}
+            {{ partial "a11ynot/card-link.html" . }}
+            {{- end }}
+          </ul>
+        </section>
+        {{- end }}
+      {{- else }}
+        {{- $pages := .RegularPages.ByTitle }}
+        {{- if gt (len $pages) 0 }}
+        <ul class="a11ynot-cards" role="list">
+          {{- range $pages }}
+          <li class="a11ynot-cards-item">
+            {{ partial "a11ynot/card.html" . }}
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
       {{- end }}
     {{- end }}
   </section>

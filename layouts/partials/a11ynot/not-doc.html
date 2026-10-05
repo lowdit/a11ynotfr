@@ -1,5 +1,56 @@
-{{/* Placeholder — copier depuis bertrandkeller après migration data/a11ynot */}}
+{{/* Fiche auditeur — WCAG : centré critère ; outils : fiche data/nots.yaml */}}
+{{- $id := .Params.a11ynot_id -}}
+{{- $isWcag := eq .Params.category "wcag" -}}
+{{- $wcagData := site.Data.a11ynot.wcag_meta | default (index site.Data.a11ynot "wcag-meta") -}}
+{{- $wcag := index $wcagData.nots $id -}}
+{{- $data := site.Data.a11ynot.nots -}}
+{{- $entry := index $data.nots $id -}}
+{{- $defaults := $data.defaults -}}
+{{- $outil := index site.Data.a11ynot.outils_meta.nots $id -}}
+
 <section class="a11ynot-doc" aria-labelledby="a11ynot-doc-title">
   <h2 id="a11ynot-doc-title" class="h3">Comprendre cet exemple</h2>
-  <p class="a11ynot-lead">Fiche auditeur à brancher sur <code>data/a11ynot/</code> (migration depuis le blog).</p>
+
+  {{- if $isWcag }}
+  {{- with $wcag }}
+  <p class="a11ynot-lead">{{ .summary_fr }}</p>
+  <p><strong>Critère :</strong> {{ .primary_criterion }} — {{ index $wcagData.sc_names .primary_criterion }}</p>
+  <p><strong>Technique W3C :</strong> {{ $id }} (<a href="https://www.w3.org/TR/WCAG20-TECHS/failures.html#{{ $id }}">référence</a>)</p>
+  <details class="a11ynot-details">
+    <summary>Titre officiel en anglais (W3C)</summary>
+    <p lang="en">{{ .title_en }}</p>
+  </details>
+  <h3 class="h4">Comment vérifier sur cette page</h3>
+  <ul class="a11ynot-checklist">
+    <li>Observer la zone entre « Début » et « Fin » de l’exemple.</li>
+    <li>Relier le problème au critère {{ .primary_criterion }} (pas seulement à l’alerte outil).</li>
+    <li>Utiliser le code (Gist) comme preuve dans un rapport d’audit.</li>
+  </ul>
+  {{- else }}
+  <p class="a11ynot-lead">Métadonnées WCAG manquantes pour {{ $id }}.</p>
+  {{- end }}
+  {{- else }}
+  {{- with $entry.summary_fr | default $outil.summary_fr }}
+  <p class="a11ynot-lead">{{ . }}</p>
+  {{- else }}
+  <p class="a11ynot-lead">Contre-exemple lié aux règles des outils de développement (Accessibility Developer Tools).</p>
+  {{- end }}
+  {{- with $outil.wcag_fr }}
+  <p><strong>Critères WCAG visés :</strong> {{ delimit . " · " }}</p>
+  {{- end }}
+  <p><strong>Règle outil :</strong> <code>{{ $id }}</code> (<a href="https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules" hreflang="en">documentation Chrome</a>)</p>
+  {{- with $entry.not_status | default $defaults.not_status }}
+  <p><strong>Statut :</strong> <span class="a11ynot-badge a11ynot-badge--{{ . }}">{{ . }}</span></p>
+  {{- end }}
+  <h3 class="h4">Comment vérifier sur cette page</h3>
+  <ul class="a11ynot-checklist">
+    {{- $observe := $entry.observe | default $defaults.observe_heritage -}}
+    {{- range $observe }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
+  {{- with $entry.apport | default $defaults.apport_heritage }}
+  <p class="a11ynot-apport">{{ . }}</p>
+  {{- end }}
+  {{- end }}
 </section>

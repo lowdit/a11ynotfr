@@ -1,6 +1,4 @@
-
 theme = ["github.com/lowdit/higo"]
-BaseURL = ""
 
 [minify]
-  minifyOutput = true
+minifyOutput = true

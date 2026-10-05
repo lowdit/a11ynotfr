@@ -1,4 +1,4 @@
-module github.com/bertrandkeller/a11ynotfr
+module github.com/lowdit/a11ynotfr
 
 go 1.25.6
 
