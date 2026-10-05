@@ -16,11 +16,11 @@
     {{- $outilsMeta := site.Data.a11ynot.outils_meta -}}
 
     <div class="a11ynot-home-actions">
-      <a class="a11ynot-home-action a11ynot-home-action--primary" href="/wcag/">
+      <a class="a11ynot-home-action a11ynot-home-action--primary" href="/a11ynotfr/wcag/">
         <span class="a11ynot-home-action-label">WCAG 2.0 par critère</span>
         <span class="a11ynot-home-action-meta">{{ len $wcagData.by_criterion }} critères · {{ len $wcagPages }} exemples</span>
       </a>
-      <a class="a11ynot-home-action" href="/outils/">
+      <a class="a11ynot-home-action" href="/a11ynotfr/outils/">
         <span class="a11ynot-home-action-label">Règles outils (Chrome ADT)</span>
         <span class="a11ynot-home-action-meta">{{ len $outilsMeta.nots }} démos AX_*</span>
       </a>
