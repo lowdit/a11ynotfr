@@ -1,0 +1,14 @@
+# Hugo
+public
+/resources
+_vendor
+go.sum
+.hugo_build.lock
+.frontmatter
+
+# OS
+.DS_Store
+
+# Python (scripts de génération)
+scripts/.venv
+scripts/__pycache__

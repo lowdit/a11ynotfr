@@ -1,0 +1,20 @@
+{{/* Navigation secondaire a11yNot — listes et fiches */}}
+<nav class="a11ynot-nav" aria-label="Sections a11yNot">
+  <ul class="a11ynot-nav-list">
+    <li>
+      <a href="/"{{ if eq .RelPermalink "/" }} aria-current="page"{{ end }}>Accueil</a>
+    </li>
+    <li>
+      <a href="/wcag/"{{ if hasPrefix .RelPermalink "/wcag/" }} aria-current="page"{{ end }}>WCAG</a>
+    </li>
+    <li>
+      <a href="/outils/"{{ if hasPrefix .RelPermalink "/outils/" }} aria-current="page"{{ end }}>Outils développeur</a>
+    </li>
+    <li>
+      <a href="/guide-auditeur/"{{ if eq .RelPermalink "/guide-auditeur/" }} aria-current="page"{{ end }}>Guide auditeur</a>
+    </li>
+    <li>
+      <a href="/contribuer/"{{ if eq .RelPermalink "/contribuer/" }} aria-current="page"{{ end }}>Contribuer</a>
+    </li>
+  </ul>
+</nav>

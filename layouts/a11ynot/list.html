@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{- partial "utils/nav-depth" . -}}
+{{ with resources.Get "css/a11ynot.css" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+<div class="container a11ynot-scope">
+  <section class="page-header">
+    <h1 class="page-header-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="page-header-desc">{{ . | markdownify }}</p>{{ end }}
+    {{ partial "a11ynot/nav.html" . }}
+  </section>
+
+  <section class="markdown">
+    {{ with .Content }}{{ . }}{{ end }}
+
+    {{- if .IsSection }}
+      {{- $pages := .RegularPages.ByTitle }}
+      {{- if gt (len $pages) 0 }}
+      <ul class="a11ynot-cards" role="list">
+        {{- range $pages }}
+        <li class="a11ynot-cards-item">
+          {{ partial "a11ynot/card.html" . }}
+        </li>
+        {{- end }}
+      </ul>
+      {{- end }}
+
+      {{/* Listes enrichies par data (comme sur le blog) — à brancher après migration YAML */}}
+      {{- if eq .RelPermalink "/wcag/" }}
+      <p class="a11ynot-list-intro">Après migration : regroupement par critère WCAG 2.0 via <code>data/a11ynot/wcag_meta.yaml</code>.</p>
+      {{- else if eq .RelPermalink "/outils/" }}
+      <p class="a11ynot-list-intro">Après migration : regroupement par thème via <code>data/a11ynot/outils_meta.yaml</code>.</p>
+      {{- end }}
+    {{- end }}
+  </section>
+</div>
+{{ end }}

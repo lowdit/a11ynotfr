@@ -1,0 +1,82 @@
+name: 'Receive Interviews'
+
+## example payload { "event": "comment", "client_payload" : { "data": { "slugpath": "TEST" , "name": "TEST" , "email": "TEST" ,"comment": TEST }}}
+## https://jackyzy823.github.io/tech/blog-comment-system-upgrade-2021-en.html
+
+# because we install `https://github.com/apps/public-action-trigger`
+on:
+  # NOTE: your site source-code branch must be default branch
+  repository_dispatch:
+    # A custom event-type
+    types: [interview]
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # do we need echo to  ::set-output?
+      # in order not to be abused. all fields are processed single by single.
+      - name: Preprocess data
+        id: preprocess
+        run: |
+          echo "_id=$(uuidgen)" >> $GITHUB_OUTPUT
+          echo "date=$(date +%s)" >> $GITHUB_OUTPUT
+          echo "name=${{ github.event.client_payload.data.name }}" >> $GITHUB_OUTPUT
+          echo "slugpath=${{ github.event.client_payload.data.slugpath }}" >> $GITHUB_OUTPUT
+      - name: Validate required fields
+        run: |
+          if [[ -z "${{ steps.preprocess.outputs.slugpath }}" ]];
+          then
+            exit 1;
+          fi
+
+          if [[ ! $(realpath -m content/interviews/${{ steps.preprocess.outputs.slugpath }}) =~ ^$(realpath -m content/interviews/).* ]];
+          then
+            exit 1;
+          fi
+      - name: Install yq
+        uses: mikefarah/yq@v4  # Utiliser l'action yq officielle
+
+      - name: Convert client payload to YAML
+        env:
+          SLUGPATH: ${{ steps.preprocess.outputs.slugpath }}
+          SLUGNAME: ${{ github.event.client_payload.data.slugname }}
+          DATE: ${{ github.event.client_payload.data.date }}
+        run: |
+          # Convertir le payload JSON en YAML
+          mkdir -p "content/interviews/${SLUGPATH}"
+          # Convertir le payload JSON en YAML
+          yamlData=$(echo '${{ toJson(github.event.client_payload.data) }}' | yq eval -P -)
+
+          # Entourer les valeurs de guillemets sauf pour les dates
+          yamlData=$(echo "$yamlData" | awk -F': ' '{
+            if ($2 ~ /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) {
+              print $1 ": " $2
+            } else if ($2 !~ /^".*"$/) {
+              print $1 ": \"" $2 "\""
+            } else {
+              print $0  # Imprimer la ligne telle quelle si elle est déjà entourée de guillemets
+            }
+          }')
+
+          # Créer le contenu Markdown avec les métadonnées
+          echo -e "---\n$yamlData\n---\n\n" > "content/interviews/${SLUGPATH}/${SLUGNAME}-${DATE}.md"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "${{ steps.preprocess.outputs.name }} interviews on ${{ steps.preprocess.outputs.slugpath }} via apps/public-action-trigger"
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          base: master
+          branch: interviews-${{ steps.preprocess.outputs._id }}
+          delete-branch: true
+          title: "Interviews of ${{ steps.preprocess.outputs.name }} on ${{ steps.preprocess.outputs.slugpath }}"
+          body: |
+            Interviews on **${{ steps.preprocess.outputs.slugpath }}**:
+
+            **${{ steps.preprocess.outputs.interviews }}**
+          draft: false
+        # once Pull Request merged. .github/workflows/publish.yml will be trigged.
+        # as Pull Request merge is  a push

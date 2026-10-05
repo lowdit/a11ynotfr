@@ -1,0 +1,22 @@
+{{/* Carte pour une fiche Not ou entrée de liste — .Page requis */}}
+<article class="a11ynot-card">
+  <h2 class="a11ynot-card-title">
+    <a href="{{ .RelPermalink }}">
+      {{- with .Params.a11ynot_id -}}
+        <span class="visually-hidden">Identifiant </span><code>{{ . }}</code>
+        <span class="visually-hidden"> — </span>
+      {{- end -}}
+      {{ .Title }}
+    </a>
+  </h2>
+  {{- with .Description }}
+  <p class="a11ynot-card-desc">{{ . }}</p>
+  {{- else }}
+  {{- with .Params.summary_fr }}
+  <p class="a11ynot-card-desc">{{ . }}</p>
+  {{- end }}
+  {{- end }}
+  {{- with .Params.a11ynot_id }}
+  <p class="a11ynot-card-meta"><code>{{ . }}</code></p>
+  {{- end }}
+</article>

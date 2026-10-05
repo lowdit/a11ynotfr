@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{- partial "utils/nav-depth" . -}}
+{{ with resources.Get "css/a11ynot.css" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+<div class="container a11ynot-scope">
+  {{- with .Params.a11ynot_id }}
+  <aside class="a11ynot-banner" aria-label="Avertissement pédagogique">
+    <p><strong>Démo pédagogique.</strong> Cette page illustre volontairement une barrière d'accessibilité.</p>
+  </aside>
+  {{- end }}
+
+  <section class="page-header">
+    <h1 class="page-header-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="page-header-desc">{{ . | markdownify }}</p>{{ end }}
+    {{ partial "a11ynot/nav.html" . }}
+  </section>
+
+  {{- with .Params.a11ynot_id }}
+  {{ partial "a11ynot/not-doc.html" $ }}
+  {{- end }}
+
+  <section class="a11ynot-demo markdown" aria-label="Zone de démonstration">
+    {{ .Content }}
+  </section>
+</div>
+{{ end }}
