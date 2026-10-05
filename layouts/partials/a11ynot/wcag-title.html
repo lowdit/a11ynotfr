@@ -1,0 +1,10 @@
+{{/* Titre FR pour pages WCAG */}}
+{{- $id := .Params.a11ynot_id -}}
+{{- $wcagData := site.Data.a11ynot.wcag_meta | default (index site.Data.a11ynot "wcag-meta") -}}
+{{- $wcag := index $wcagData.nots $id -}}
+{{- with $wcag }}
+<h1 class="page-header-title h2" id="{{ $.Params.gistID }}">{{ .title_fr }}</h1>
+<p class="a11ynot-kicker">Critère WCAG {{ .primary_criterion }} · technique d’échec {{ $id }}</p>
+{{- else }}
+<h1 class="page-header-title h2" id="{{ $.Params.gistID }}">{{ .Title }}</h1>
+{{- end }}

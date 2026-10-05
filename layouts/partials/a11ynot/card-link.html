@@ -1,0 +1,12 @@
+{{/* Carte compacte pour listes par critère / thème — dict avec url, ids, labels */}}
+<li class="a11ynot-cards-item">
+  <article class="a11ynot-card">
+    <h3 class="a11ynot-card-title">
+      <a href="{{ .url }}">
+        {{- with .failure_id }}<code>{{ . }}</code> — {{ end -}}
+        {{- with .tool_id }}<code>{{ . }}</code> — {{ end -}}
+        {{ .label_fr | default .title_fr }}
+      </a>
+    </h3>
+  </article>
+</li>

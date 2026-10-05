@@ -1,0 +1,184 @@
+/* a11yNot sur bertrandkeller — styles limités à .a11ynot-scope (pas la feuille jaune d’origine) */
+
+.container.nav-back:has(+ .container.a11ynot-scope) > p.smaller {
+  position: static;
+  top: auto;
+  left: auto;
+  margin: 0.75rem 0 1rem;
+  font-size: inherit;
+}
+
+.a11ynot-scope .a11ynot-brand {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.a11ynot-scope .a11ynot-brand img {
+  vertical-align: middle;
+  margin-right: 0.35rem;
+}
+
+.a11ynot-scope .rendered-not {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.a11ynot-scope .rendered-not iframe {
+  display: block;
+  border: none;
+  width: 100%;
+  max-width: 32rem;
+  height: 14rem;
+  max-height: 50vh;
+}
+
+.a11ynot-scope .a11ynot-kicker {
+  margin: -0.25rem 0 1rem;
+  font-size: 0.95rem;
+  color: #585858;
+}
+
+.a11ynot-scope .a11ynot-criterion-block {
+  margin-bottom: 2rem;
+}
+
+.a11ynot-scope .a11ynot-criterion-block h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.a11ynot-scope .a11ynot-list-intro {
+  margin-bottom: 1.5rem;
+}
+
+.a11ynot-scope .a11ynot-details {
+  margin: 0.75rem 0 1rem;
+  font-size: 0.9rem;
+}
+
+.a11ynot-scope .a11ynot-apport {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.a11ynot-scope .a11ynot-doc {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.a11ynot-scope .a11ynot-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.a11ynot-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.a11ynot-badge--heritage {
+  background: #eee;
+  color: #444;
+}
+
+.a11ynot-badge--actuel {
+  background: color-mix(in srgb, var(--color-special, #1d277e) 12%, #fff);
+  color: var(--color-special, #1d277e);
+  border: 1px solid color-mix(in srgb, var(--color-special, #1d277e) 25%, #ccc);
+}
+
+.a11ynot-badge--nouveau {
+  background: #e8f4e8;
+  color: #2d5a2d;
+  border: 1px solid #b8d4b8;
+}
+
+.a11ynot-status-desc {
+  font-size: 0.9rem;
+  color: #585858;
+}
+
+.a11ynot-scope .a11ynot-checklist li {
+  margin-bottom: 0.35rem;
+}
+
+.a11ynot-scope .a11ynot-meta-dl {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+}
+
+.a11ynot-scope .a11ynot-meta-dl dt {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.a11ynot-scope .a11ynot-meta-dl dd {
+  margin: 0.15rem 0 0;
+}
+
+.a11ynot-scope .a11ynot-credits {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #585858;
+}
+
+/* Gist GitHub : cadre visible sur fond de page blanc */
+.a11ynot-scope .gist {
+  margin: 1rem 0;
+  max-width: 100%;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.a11ynot-scope .gist .gist-file {
+  margin: 0 !important;
+  border: none !important;
+}
+
+.a11ynot-scope .gist .gist-data {
+  background: #fff;
+}
+
+/* Gist GitHub : éviter les bordures de table du thème sur le listing de lignes */
+.a11ynot-scope .gist table,
+.a11ynot-scope .gist tr,
+.a11ynot-scope .gist td,
+.a11ynot-scope .gist th {
+  border: none !important;
+  background: transparent;
+}
+
+.a11ynot-scope .gist .js-file-line-container td:first-child,
+.a11ynot-scope .gist .blob-num {
+  border: none !important;
+  box-shadow: none !important;
+  user-select: none;
+}
+
+.a11ynot-scope .gist .highlight {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.a11ynot-scope .gist .gist-meta {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  background: #f7f7f7;
+  border-top: 1px solid #e8e8e8;
+}

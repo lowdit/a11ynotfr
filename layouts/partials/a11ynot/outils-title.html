@@ -1,0 +1,10 @@
+{{/* Titre FR pour pages outils (AX_*) */}}
+{{- $id := .Params.a11ynot_id -}}
+{{- $data := site.Data.a11ynot.outils_meta -}}
+{{- $tool := cond $id (index $data.nots $id) nil -}}
+{{- with $tool }}
+<h1 class="page-header-title h2" id="{{ $.Params.gistID }}">{{ .title_short_fr }}</h1>
+<p class="a11ynot-kicker">Règle outil <code>{{ $id }}</code></p>
+{{- else }}
+<h1 class="page-header-title h2" id="{{ $.Params.gistID }}">{{ .Title }}</h1>
+{{- end }}

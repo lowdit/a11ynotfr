@@ -1,0 +1,75 @@
+# Métadonnées pédagogiques pour auditeurs (complètent le front matter Hugo).
+# Clé = a11ynot_id (ex. AX_ARIA_01, F65).
+#
+# not_status :
+#   heritage — reprise a11yNot ~2016 ; patterns parfois datés, valeur pédagogique conservée
+#   actuel   — exemple toujours pertinent en audit courant (2020+)
+#   nouveau  — contenu ajouté sur a11ynotfr (pas dans le dépôt d’origine)
+
+defaults:
+  not_status: heritage
+  observe_heritage:
+    - "Lire le titre et l’identifiant (AX_* ou échec WCAG F*) pour situer la règle visée."
+    - "Inspecter uniquement la zone « Début / Fin de l’exemple » : le reste de la page du site reste conforme."
+    - "Repasser un outil automatique (axe DevTools, WAVE, etc.) sur la page : la violation attendue doit correspondre au Not."
+    - "Compléter par un test manuel (clavier, zoom 200 %, lecteur d’écran) si le critère le exige — l’outil seul ne suffit pas."
+  apport_heritage: "Illustration isolée d’un échec documenté par le W3C ou les règles des outils dev ; utile pour former l’œil et calibrer les tests outils, en gardant à l’esprit le contexte HTML/ARIA de 2016."
+
+nots:
+  AX_ARIA_01:
+    not_status: actuel
+    title_fr: "Rôles ARIA invalides ou vides"
+    summary_fr: "Des attributs `role` inventés, abstraits ou vides ne sont pas exposés de façon fiable aux technologies d’assistance."
+    observe:
+      - "Dans l’inspecteur : repérer `role=\"datepicker\"`, `role=\"range\"`, `role=\"\"` dans la zone de démo."
+      - "Avec axe ou Accessibility Developer Tools : alertes sur rôle non valide ou absent."
+      - "Au lecteur d’écran : pas d’annonce cohérente de « datepicker » ou de contrôle de plage — comportement imprévisible."
+    apport: "Pour l’auditeur : vérifier que chaque `role` est un rôle ARIA autorisé et adapté au widget réel ; un `role` incorrect est un défaut 4.1.2 (nom, rôle, valeur) même si le rendu visuel semble correct."
+    wcag:
+      - "4.1.2 Name, Role, Value"
+    level: debutant
+    outils:
+      - "axe DevTools"
+      - "AInspector"
+
+  AX_COLOR_01:
+    not_status: actuel
+    title_fr: "Contraste insuffisant du texte"
+    summary_fr: "Texte gris clair ou titres pâles sur fond blanc : ratio de contraste sous les seuils WCAG."
+    observe:
+      - "Mesurer le contraste (Colour Contrast Analyser, outil intégré Firefox, axe) sur les libellés dans la zone de démo."
+      - "Repérer texte « normal » sous 4,5:1 et grand texte sous 3:1."
+      - "Tester avec zoom 200 % : le contenu faible contraste pénalise aussi les utilisateurs malvoyants sans AT."
+    apport: "Cas de référence pour 1.4.3 ; en audit, toujours lier la mesure à la taille de police et au fond réel (pas seulement la valeur CSS nommée « gray »)."
+    wcag:
+      - "1.4.3 Contrast (Minimum)"
+    level: debutant
+    outils:
+      - "axe"
+      - "WAVE"
+
+  F65:
+    not_status: actuel
+    title_fr: "Texte alternatif omis sur une image informative"
+    summary_fr: "Une image qui transmet une information n’a pas d’alternative textuelle (`alt` absent ou vide)."
+    observe:
+      - "Désactiver les images ou lire la page au lecteur d’écran : l’information est perdue."
+      - "Vérifier le code : balise `img` sans `alt` significatif dans la démo."
+      - "Outils : signalement d’image sans alt / alt vide sur contenu probablement informatif."
+    apport: "Échec WCAG F65 — ancrage pour 1.1.1 ; en audit, distinguer décoratif (alt=\"\") et informatif (alt descriptif)."
+    wcag:
+      - "1.1.1 Non-text Content"
+    level: debutant
+
+  F37:
+    not_status: heritage
+    title_fr: "Changement de contexte sans avertissement (fenêtre popup)"
+    summary_fr: "Sélection d’un bouton radio ouvre une nouvelle fenêtre sans prévenir l’utilisateur."
+    observe:
+      - "Activer chaque option radio dans la zone de démo : une popup s’ouvre (bloquez les popups si besoin pour éviter le spam)."
+      - "Parcours clavier : même comportement au clic / activation."
+      - "Relier au critère 3.2.2 : changement de contexte à la saisie."
+    apport: "Exemple historique mais toujours parlant pour les changements de contexte ; en production moderne, prefer focus trap / navigation in-page plutôt que `window.open` sur `onclick`."
+    wcag:
+      - "3.2.2 On Input"
+    level: intermediaire

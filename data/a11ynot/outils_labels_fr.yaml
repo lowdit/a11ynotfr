@@ -1,0 +1,132 @@
+# Libellés FR — règles Accessibility Developer Tools (a11yNot AX_*).
+# Regénérer : python3 scripts/build_a11ynot_outils_meta.py
+
+themes:
+  aria:
+    name_fr: "ARIA — rôles, états et relations"
+    order: 1
+  focus:
+    name_fr: "Focus et clavier"
+    order: 2
+  couleur:
+    name_fr: "Couleurs et contraste"
+    order: 3
+  texte:
+    name_fr: "Textes, libellés et images"
+    order: 4
+  html:
+    name_fr: "HTML et structure de page"
+    order: 5
+  tableaux:
+    name_fr: "Tableaux de données"
+    order: 6
+  media:
+    name_fr: "Médias"
+    order: 7
+
+labels:
+  AX_ARIA_01:
+    theme: aria
+    title_fr: "Rôles ARIA interdits, abstraits ou vides"
+    summary_fr: "Des valeurs de role invalides (datepicker, range abstrait, role vide) ne sont pas exposées correctement aux aides techniques."
+    wcag: ["4.1.2"]
+  AX_ARIA_02:
+    theme: aria
+    title_fr: "aria-labelledby qui ne pointe vers aucun id"
+    summary_fr: "L’attribut aria-labelledby référence un id inexistant (faute de frappe) : le champ n’a pas de nom accessible."
+    wcag: ["4.1.2", "1.3.1"]
+  AX_ARIA_03:
+    theme: aria
+    title_fr: "État ARIA obligatoire manquant (case à cocher)"
+    summary_fr: "Un role checkbox exige aria-checked ; sans cet état, le contrôle est incomplet pour l’API d’accessibilité."
+    wcag: ["4.1.2"]
+  AX_ARIA_04:
+    theme: aria
+    title_fr: "Valeur d’état ARIA incorrecte (aria-hidden)"
+    summary_fr: "aria-hidden n’accepte que true ou false ; une autre valeur est ignorée ou mal interprétée."
+    wcag: ["4.1.2"]
+  AX_ARIA_06:
+    theme: aria
+    title_fr: "Propriété aria-owns inutile quand la hiérarchie DOM suffit"
+    summary_fr: "Déclarer aria-owns alors que les radios sont déjà des descendants du radiogroup : risque de double relation ou d’incohérence."
+    wcag: ["4.1.2", "1.3.1"]
+  AX_ARIA_07:
+    theme: aria
+    title_fr: "Même liste « possédée » par deux combobox"
+    summary_fr: "Une liste ne peut avoir qu’un seul propriétaire logique ; deux aria-owns vers la même liste casse le modèle ARIA."
+    wcag: ["4.1.2"]
+  AX_ARIA_08:
+    theme: aria
+    title_fr: "Radiogroup sans éléments role radio associés"
+    summary_fr: "Un radiogroup doit posséder des radios ; des boutons natifs sans role radio ne forment pas un groupe valide."
+    wcag: ["4.1.2", "1.3.1"]
+  AX_ARIA_09:
+    theme: aria
+    title_fr: "listitem en dehors d’un conteneur list"
+    summary_fr: "role listitem exige un ancêtre list ; sinon la structure n’est pas annoncée comme une liste."
+    wcag: ["4.1.2", "1.3.1"]
+  AX_ARIA_10:
+    theme: aria
+    title_fr: "Attribut ARIA non pris en charge par le rôle (aria-required sur radio)"
+    summary_fr: "aria-required n’est pas valide sur role radio : attribut ignoré ou signalé par les outils."
+    wcag: ["4.1.2"]
+  AX_ARIA_11:
+    theme: aria
+    title_fr: "Faute de frappe dans aria-labelledby (aria-labeledby)"
+    summary_fr: "aria-labeledby n’existe pas en ARIA ; le libellé attendu n’est jamais appliqué."
+    wcag: ["4.1.2"]
+  AX_ARIA_12:
+    theme: aria
+    title_fr: "Attributs ARIA sur une balise meta"
+    summary_fr: "meta n’accepte pas les attributs ARIA ; le balisage est non conforme et peut perturber l’analyse."
+    wcag: ["4.1.2"]
+  AX_FOCUS_01:
+    theme: focus
+    title_fr: "Élément focusable sans zone cliquable visible"
+    summary_fr: "Un float peut réduire la zone de hit à zéro tout en laissant l’élément tabulable : focus « fantôme »."
+    wcag: ["2.4.7", "2.1.1"]
+  AX_FOCUS_02:
+    theme: focus
+    title_fr: "Contrôles cliquables non atteignables au clavier"
+    summary_fr: "span avec onclick sans tabindex et lien sans href ne reçoivent pas le focus clavier."
+    wcag: ["2.1.1", "4.1.2"]
+  AX_COLOR_01:
+    theme: couleur
+    title_fr: "Contraste insuffisant du texte"
+    summary_fr: "Texte normal et titres avec des ratios sous 4,5:1 et 3:1 — cas typique des gris clairs sur fond blanc."
+    wcag: ["1.4.3"]
+  AX_TEXT_01:
+    theme: texte
+    title_fr: "Champ sans label associé et bouton sans nom"
+    summary_fr: "Label visuel non lié par for/id et bouton sans texte ni aria-label : nom accessible absent."
+    wcag: ["4.1.2", "1.3.1"]
+  AX_TEXT_02:
+    theme: texte
+    title_fr: "Image informative sans alternative ou mal masquée"
+    summary_fr: "Image porteuse de sens sans contenu de remplacement, ou image décorative non ignorée par les AT."
+    wcag: ["1.1.1"]
+  AX_HTML_01:
+    theme: html
+    title_fr: "Attribut lang absent sur l’élément html"
+    summary_fr: "Sans lang sur html, la langue de la page n’est pas déclarée (prononciation et traduction automatique)."
+    wcag: ["3.1.1"]
+  AX_HTML_02:
+    theme: html
+    title_fr: "Identifiant id dupliqué dans la page"
+    summary_fr: "Deux éléments partagent le même id : références ARIA, labels et scripts deviennent ambigus."
+    wcag: ["4.1.1", "1.3.1"]
+  AX_TABLE_01a:
+    theme: tableaux
+    title_fr: "En-têtes de tableau manquants ou incohérents"
+    summary_fr: "Ligne d’en-têtes incomplète ou tableau sans th : relations en-tête/cellule non déterminables."
+    wcag: ["1.3.1"]
+  AX_TABLE_01b:
+    theme: tableaux
+    title_fr: "Tableau de mise en forme avec th/td sémantiques"
+    summary_fr: "role presentation sur un tableau qui contient encore th/td : structure data table signalée à tort."
+    wcag: ["1.3.1", "4.1.2"]
+  AX_VIDEO_01:
+    theme: media
+    title_fr: "Vidéo sans contenu accessible (sous-titres, transcription…)"
+    summary_fr: "Lecture automatique sans piste textuelle ni alternative : information sonore inaccessible."
+    wcag: ["1.2.1", "1.4.2"]

@@ -1,0 +1,318 @@
+# Généré par scripts/build_a11ynot_outils_meta.py — ne pas éditer à la main.
+by_theme:
+  - id: "aria"
+    name_fr: "ARIA — rôles, états et relations"
+    examples:
+      - tool_id: "AX_ARIA_01"
+        label_fr: "Rôles ARIA interdits, abstraits ou vides"
+        title_fr: "Rôles ARIA interdits, abstraits ou vides (AX_ARIA_01)"
+        url: "/outils/ax-aria-01/"
+      - tool_id: "AX_ARIA_02"
+        label_fr: "aria-labelledby qui ne pointe vers aucun id"
+        title_fr: "aria-labelledby qui ne pointe vers aucun id (AX_ARIA_02)"
+        url: "/outils/ax-aria-02/"
+      - tool_id: "AX_ARIA_03"
+        label_fr: "État ARIA obligatoire manquant (case à cocher)"
+        title_fr: "État ARIA obligatoire manquant (case à cocher) (AX_ARIA_03)"
+        url: "/outils/ax-aria-03/"
+      - tool_id: "AX_ARIA_04"
+        label_fr: "Valeur d’état ARIA incorrecte (aria-hidden)"
+        title_fr: "Valeur d’état ARIA incorrecte (aria-hidden) (AX_ARIA_04)"
+        url: "/outils/ax-aria-04/"
+      - tool_id: "AX_ARIA_06"
+        label_fr: "Propriété aria-owns inutile quand la hiérarchie DOM suffit"
+        title_fr: "Propriété aria-owns inutile quand la hiérarchie DOM suffit (AX_ARIA_06)"
+        url: "/outils/ax-aria-06/"
+      - tool_id: "AX_ARIA_07"
+        label_fr: "Même liste « possédée » par deux combobox"
+        title_fr: "Même liste « possédée » par deux combobox (AX_ARIA_07)"
+        url: "/outils/ax-aria-07/"
+      - tool_id: "AX_ARIA_08"
+        label_fr: "Radiogroup sans éléments role radio associés"
+        title_fr: "Radiogroup sans éléments role radio associés (AX_ARIA_08)"
+        url: "/outils/ax-aria-08/"
+      - tool_id: "AX_ARIA_09"
+        label_fr: "listitem en dehors d’un conteneur list"
+        title_fr: "listitem en dehors d’un conteneur list (AX_ARIA_09)"
+        url: "/outils/ax-aria-09/"
+      - tool_id: "AX_ARIA_10"
+        label_fr: "Attribut ARIA non pris en charge par le rôle (aria-required sur radio)"
+        title_fr: "Attribut ARIA non pris en charge par le rôle (aria-required sur radio) (AX_ARIA_10)"
+        url: "/outils/ax-aria-10/"
+      - tool_id: "AX_ARIA_11"
+        label_fr: "Faute de frappe dans aria-labelledby (aria-labeledby)"
+        title_fr: "Faute de frappe dans aria-labelledby (aria-labeledby) (AX_ARIA_11)"
+        url: "/outils/ax-aria-11/"
+      - tool_id: "AX_ARIA_12"
+        label_fr: "Attributs ARIA sur une balise meta"
+        title_fr: "Attributs ARIA sur une balise meta (AX_ARIA_12)"
+        url: "/outils/ax-aria-12/"
+  - id: "focus"
+    name_fr: "Focus et clavier"
+    examples:
+      - tool_id: "AX_FOCUS_01"
+        label_fr: "Élément focusable sans zone cliquable visible"
+        title_fr: "Élément focusable sans zone cliquable visible (AX_FOCUS_01)"
+        url: "/outils/ax-focus-01/"
+      - tool_id: "AX_FOCUS_02"
+        label_fr: "Contrôles cliquables non atteignables au clavier"
+        title_fr: "Contrôles cliquables non atteignables au clavier (AX_FOCUS_02)"
+        url: "/outils/ax-focus-02/"
+  - id: "couleur"
+    name_fr: "Couleurs et contraste"
+    examples:
+      - tool_id: "AX_COLOR_01"
+        label_fr: "Contraste insuffisant du texte"
+        title_fr: "Contraste insuffisant du texte (AX_COLOR_01)"
+        url: "/outils/ax-color-01/"
+  - id: "texte"
+    name_fr: "Textes, libellés et images"
+    examples:
+      - tool_id: "AX_TEXT_01"
+        label_fr: "Champ sans label associé et bouton sans nom"
+        title_fr: "Champ sans label associé et bouton sans nom (AX_TEXT_01)"
+        url: "/outils/ax-text-01/"
+      - tool_id: "AX_TEXT_02"
+        label_fr: "Image informative sans alternative ou mal masquée"
+        title_fr: "Image informative sans alternative ou mal masquée (AX_TEXT_02)"
+        url: "/outils/ax-text-02/"
+  - id: "html"
+    name_fr: "HTML et structure de page"
+    examples:
+      - tool_id: "AX_HTML_01"
+        label_fr: "Attribut lang absent sur l’élément html"
+        title_fr: "Attribut lang absent sur l’élément html (AX_HTML_01)"
+        url: "/outils/ax-html-01/"
+      - tool_id: "AX_HTML_02"
+        label_fr: "Identifiant id dupliqué dans la page"
+        title_fr: "Identifiant id dupliqué dans la page (AX_HTML_02)"
+        url: "/outils/ax-html-02/"
+  - id: "tableaux"
+    name_fr: "Tableaux de données"
+    examples:
+      - tool_id: "AX_TABLE_01a"
+        label_fr: "En-têtes de tableau manquants ou incohérents"
+        title_fr: "En-têtes de tableau manquants ou incohérents (AX_TABLE_01a)"
+        url: "/outils/ax-table-01a/"
+      - tool_id: "AX_TABLE_01b"
+        label_fr: "Tableau de mise en forme avec th/td sémantiques"
+        title_fr: "Tableau de mise en forme avec th/td sémantiques (AX_TABLE_01b)"
+        url: "/outils/ax-table-01b/"
+  - id: "media"
+    name_fr: "Médias"
+    examples:
+      - tool_id: "AX_VIDEO_01"
+        label_fr: "Vidéo sans contenu accessible (sous-titres, transcription…)"
+        title_fr: "Vidéo sans contenu accessible (sous-titres, transcription…) (AX_VIDEO_01)"
+        url: "/outils/ax-video-01/"
+nots:
+  "AX_ARIA_01":
+    theme: "aria"
+    title_short_fr: "Rôles ARIA interdits, abstraits ou vides"
+    title_fr: "Rôles ARIA interdits, abstraits ou vides (AX_ARIA_01)"
+    label_fr: "Rôles ARIA interdits, abstraits ou vides"
+    summary_fr: "Des valeurs de role invalides (datepicker, range abstrait, role vide) ne sont pas exposées correctement aux aides techniques."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-01"
+    url: "/outils/ax-aria-01/"
+  "AX_ARIA_02":
+    theme: "aria"
+    title_short_fr: "aria-labelledby qui ne pointe vers aucun id"
+    title_fr: "aria-labelledby qui ne pointe vers aucun id (AX_ARIA_02)"
+    label_fr: "aria-labelledby qui ne pointe vers aucun id"
+    summary_fr: "L’attribut aria-labelledby référence un id inexistant (faute de frappe) : le champ n’a pas de nom accessible."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-02"
+    url: "/outils/ax-aria-02/"
+  "AX_ARIA_03":
+    theme: "aria"
+    title_short_fr: "État ARIA obligatoire manquant (case à cocher)"
+    title_fr: "État ARIA obligatoire manquant (case à cocher) (AX_ARIA_03)"
+    label_fr: "État ARIA obligatoire manquant (case à cocher)"
+    summary_fr: "Un role checkbox exige aria-checked ; sans cet état, le contrôle est incomplet pour l’API d’accessibilité."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-03"
+    url: "/outils/ax-aria-03/"
+  "AX_ARIA_04":
+    theme: "aria"
+    title_short_fr: "Valeur d’état ARIA incorrecte (aria-hidden)"
+    title_fr: "Valeur d’état ARIA incorrecte (aria-hidden) (AX_ARIA_04)"
+    label_fr: "Valeur d’état ARIA incorrecte (aria-hidden)"
+    summary_fr: "aria-hidden n’accepte que true ou false ; une autre valeur est ignorée ou mal interprétée."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-04"
+    url: "/outils/ax-aria-04/"
+  "AX_ARIA_06":
+    theme: "aria"
+    title_short_fr: "Propriété aria-owns inutile quand la hiérarchie DOM suffit"
+    title_fr: "Propriété aria-owns inutile quand la hiérarchie DOM suffit (AX_ARIA_06)"
+    label_fr: "Propriété aria-owns inutile quand la hiérarchie DOM suffit"
+    summary_fr: "Déclarer aria-owns alors que les radios sont déjà des descendants du radiogroup : risque de double relation ou d’incohérence."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-06"
+    url: "/outils/ax-aria-06/"
+  "AX_ARIA_07":
+    theme: "aria"
+    title_short_fr: "Même liste « possédée » par deux combobox"
+    title_fr: "Même liste « possédée » par deux combobox (AX_ARIA_07)"
+    label_fr: "Même liste « possédée » par deux combobox"
+    summary_fr: "Une liste ne peut avoir qu’un seul propriétaire logique ; deux aria-owns vers la même liste casse le modèle ARIA."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-07"
+    url: "/outils/ax-aria-07/"
+  "AX_ARIA_08":
+    theme: "aria"
+    title_short_fr: "Radiogroup sans éléments role radio associés"
+    title_fr: "Radiogroup sans éléments role radio associés (AX_ARIA_08)"
+    label_fr: "Radiogroup sans éléments role radio associés"
+    summary_fr: "Un radiogroup doit posséder des radios ; des boutons natifs sans role radio ne forment pas un groupe valide."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-08"
+    url: "/outils/ax-aria-08/"
+  "AX_ARIA_09":
+    theme: "aria"
+    title_short_fr: "listitem en dehors d’un conteneur list"
+    title_fr: "listitem en dehors d’un conteneur list (AX_ARIA_09)"
+    label_fr: "listitem en dehors d’un conteneur list"
+    summary_fr: "role listitem exige un ancêtre list ; sinon la structure n’est pas annoncée comme une liste."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-09"
+    url: "/outils/ax-aria-09/"
+  "AX_ARIA_10":
+    theme: "aria"
+    title_short_fr: "Attribut ARIA non pris en charge par le rôle (aria-required sur radio)"
+    title_fr: "Attribut ARIA non pris en charge par le rôle (aria-required sur radio) (AX_ARIA_10)"
+    label_fr: "Attribut ARIA non pris en charge par le rôle (aria-required sur radio)"
+    summary_fr: "aria-required n’est pas valide sur role radio : attribut ignoré ou signalé par les outils."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-10"
+    url: "/outils/ax-aria-10/"
+  "AX_ARIA_11":
+    theme: "aria"
+    title_short_fr: "Faute de frappe dans aria-labelledby (aria-labeledby)"
+    title_fr: "Faute de frappe dans aria-labelledby (aria-labeledby) (AX_ARIA_11)"
+    label_fr: "Faute de frappe dans aria-labelledby (aria-labeledby)"
+    summary_fr: "aria-labeledby n’existe pas en ARIA ; le libellé attendu n’est jamais appliqué."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-11"
+    url: "/outils/ax-aria-11/"
+  "AX_ARIA_12":
+    theme: "aria"
+    title_short_fr: "Attributs ARIA sur une balise meta"
+    title_fr: "Attributs ARIA sur une balise meta (AX_ARIA_12)"
+    label_fr: "Attributs ARIA sur une balise meta"
+    summary_fr: "meta n’accepte pas les attributs ARIA ; le balisage est non conforme et peut perturber l’analyse."
+    wcag:
+    wcag_fr:
+    slug: "ax-aria-12"
+    url: "/outils/ax-aria-12/"
+  "AX_COLOR_01":
+    theme: "couleur"
+    title_short_fr: "Contraste insuffisant du texte"
+    title_fr: "Contraste insuffisant du texte (AX_COLOR_01)"
+    label_fr: "Contraste insuffisant du texte"
+    summary_fr: "Texte normal et titres avec des ratios sous 4,5:1 et 3:1 — cas typique des gris clairs sur fond blanc."
+    wcag:
+    wcag_fr:
+    slug: "ax-color-01"
+    url: "/outils/ax-color-01/"
+  "AX_FOCUS_01":
+    theme: "focus"
+    title_short_fr: "Élément focusable sans zone cliquable visible"
+    title_fr: "Élément focusable sans zone cliquable visible (AX_FOCUS_01)"
+    label_fr: "Élément focusable sans zone cliquable visible"
+    summary_fr: "Un float peut réduire la zone de hit à zéro tout en laissant l’élément tabulable : focus « fantôme »."
+    wcag:
+    wcag_fr:
+    slug: "ax-focus-01"
+    url: "/outils/ax-focus-01/"
+  "AX_FOCUS_02":
+    theme: "focus"
+    title_short_fr: "Contrôles cliquables non atteignables au clavier"
+    title_fr: "Contrôles cliquables non atteignables au clavier (AX_FOCUS_02)"
+    label_fr: "Contrôles cliquables non atteignables au clavier"
+    summary_fr: "span avec onclick sans tabindex et lien sans href ne reçoivent pas le focus clavier."
+    wcag:
+    wcag_fr:
+    slug: "ax-focus-02"
+    url: "/outils/ax-focus-02/"
+  "AX_HTML_01":
+    theme: "html"
+    title_short_fr: "Attribut lang absent sur l’élément html"
+    title_fr: "Attribut lang absent sur l’élément html (AX_HTML_01)"
+    label_fr: "Attribut lang absent sur l’élément html"
+    summary_fr: "Sans lang sur html, la langue de la page n’est pas déclarée (prononciation et traduction automatique)."
+    wcag:
+    wcag_fr:
+    slug: "ax-html-01"
+    url: "/outils/ax-html-01/"
+  "AX_HTML_02":
+    theme: "html"
+    title_short_fr: "Identifiant id dupliqué dans la page"
+    title_fr: "Identifiant id dupliqué dans la page (AX_HTML_02)"
+    label_fr: "Identifiant id dupliqué dans la page"
+    summary_fr: "Deux éléments partagent le même id : références ARIA, labels et scripts deviennent ambigus."
+    wcag:
+    wcag_fr:
+    slug: "ax-html-02"
+    url: "/outils/ax-html-02/"
+  "AX_TABLE_01a":
+    theme: "tableaux"
+    title_short_fr: "En-têtes de tableau manquants ou incohérents"
+    title_fr: "En-têtes de tableau manquants ou incohérents (AX_TABLE_01a)"
+    label_fr: "En-têtes de tableau manquants ou incohérents"
+    summary_fr: "Ligne d’en-têtes incomplète ou tableau sans th : relations en-tête/cellule non déterminables."
+    wcag:
+    wcag_fr:
+    slug: "ax-table-01a"
+    url: "/outils/ax-table-01a/"
+  "AX_TABLE_01b":
+    theme: "tableaux"
+    title_short_fr: "Tableau de mise en forme avec th/td sémantiques"
+    title_fr: "Tableau de mise en forme avec th/td sémantiques (AX_TABLE_01b)"
+    label_fr: "Tableau de mise en forme avec th/td sémantiques"
+    summary_fr: "role presentation sur un tableau qui contient encore th/td : structure data table signalée à tort."
+    wcag:
+    wcag_fr:
+    slug: "ax-table-01b"
+    url: "/outils/ax-table-01b/"
+  "AX_TEXT_01":
+    theme: "texte"
+    title_short_fr: "Champ sans label associé et bouton sans nom"
+    title_fr: "Champ sans label associé et bouton sans nom (AX_TEXT_01)"
+    label_fr: "Champ sans label associé et bouton sans nom"
+    summary_fr: "Label visuel non lié par for/id et bouton sans texte ni aria-label : nom accessible absent."
+    wcag:
+    wcag_fr:
+    slug: "ax-text-01"
+    url: "/outils/ax-text-01/"
+  "AX_TEXT_02":
+    theme: "texte"
+    title_short_fr: "Image informative sans alternative ou mal masquée"
+    title_fr: "Image informative sans alternative ou mal masquée (AX_TEXT_02)"
+    label_fr: "Image informative sans alternative ou mal masquée"
+    summary_fr: "Image porteuse de sens sans contenu de remplacement, ou image décorative non ignorée par les AT."
+    wcag:
+    wcag_fr:
+    slug: "ax-text-02"
+    url: "/outils/ax-text-02/"
+  "AX_VIDEO_01":
+    theme: "media"
+    title_short_fr: "Vidéo sans contenu accessible (sous-titres, transcription…)"
+    title_fr: "Vidéo sans contenu accessible (sous-titres, transcription…) (AX_VIDEO_01)"
+    label_fr: "Vidéo sans contenu accessible (sous-titres, transcription…)"
+    summary_fr: "Lecture automatique sans piste textuelle ni alternative : information sonore inaccessible."
+    wcag:
+    wcag_fr:
+    slug: "ax-video-01"
+    url: "/outils/ax-video-01/"

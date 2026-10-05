@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{- partial "utils/nav-depth" . -}}
+{{ partial "a11ynot/styles.html" . }}
+<div class="a11ynot-site container a11ynot-scope">
+  <section class="page-header a11ynot-home-header">
+    <h1 class="page-header-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="page-header-desc">{{ . }}</p>{{ end }}
+    {{ partial "a11ynot/nav.html" . }}
+  </section>
+
+  <section class="markdown a11ynot-home-body">
+    {{ .Content }}
+
+    {{- $wcagData := site.Data.a11ynot.wcag_meta -}}
+    {{- $wcagPages := (site.GetPage "/wcag").RegularPages -}}
+    {{- $outilsMeta := site.Data.a11ynot.outils_meta -}}
+
+    <div class="a11ynot-home-actions">
+      <a class="a11ynot-home-action a11ynot-home-action--primary" href="/wcag/">
+        <span class="a11ynot-home-action-label">WCAG 2.0 par critère</span>
+        <span class="a11ynot-home-action-meta">{{ len $wcagData.by_criterion }} critères · {{ len $wcagPages }} exemples</span>
+      </a>
+      <a class="a11ynot-home-action" href="/outils/">
+        <span class="a11ynot-home-action-label">Règles outils (Chrome ADT)</span>
+        <span class="a11ynot-home-action-meta">{{ len $outilsMeta.nots }} démos AX_*</span>
+      </a>
+    </div>
+  </section>
+
+  <p class="a11ynot-credits">
+    <a href="{{ site.Params.github }}">Contribuer sur GitHub</a>
+    · <a href="/guide-auditeur/">Guide auditeur</a>
+  </p>
+</div>
+{{ end }}

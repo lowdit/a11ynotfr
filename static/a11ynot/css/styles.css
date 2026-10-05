@@ -1,0 +1,97 @@
+@import url(https://necolas.github.io/normalize.css/3.0.2/normalize.css);
+@import url(gist.css);
+@import url(codepen.css);
+
+body {
+	font-size: 16px;
+}
+
+header a, nav[aria-label="Main Navigation"] a {
+	text-decoration: none;
+}
+
+header img {
+	margin-right: 3px;
+	height: 25px;
+}
+
+nav[aria-label="Main Navigation"] ul li {
+	display: inline;
+	list-style: none;
+}
+
+main {
+	background-color: #FDF8EC;
+}
+
+.rendered-not {
+	background-color: #FFFFFF;
+	outline: 5px solid #373E6F;
+	border: 5px solid #E6CD74;
+	padding: 10px;
+	overflow: auto;
+}
+
+iframe {
+  border: none;
+  height: 100vh;
+  max-height: 250px;
+  width: 100vw;
+  max-width: 500px;
+}
+
+@media (orientation: landscape) {
+
+	header, nav[aria-label="Main Navigation"] {
+		padding-top: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+
+	nav[aria-label="Main Navigation"] ul {
+		float: right;
+		margin: 0;
+		padding-left: 0px;
+		padding-right: 20px;
+	}
+
+	header a {
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+	
+	nav[aria-label="Main Navigation"] ul li {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	main {
+		padding: 15px;
+	}
+}
+
+@media (orientation: portrait) {
+
+	main {
+		padding: 15px;
+	}
+	
+	header > a {
+		font-size: 1.5em;
+		font-weight: bold;
+		width: 30%;
+		margin: 5px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	nav[aria-label="Main Navigation"] ul {
+		display: flex;
+	}
+
+	nav[aria-label="Main Navigation"] ul li {
+		flex-grow: 1;
+	}
+	
+}
